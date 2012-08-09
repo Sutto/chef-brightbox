@@ -16,15 +16,15 @@ recipes:
     <th>Description</th>
   </tr>
   <tr>
-    <td>brightbox::default</td>
+    <td><code>brightbox::default</code></td>
     <td>Installs the ruby and nginx passenger recipes.</td>
   </tr>
   <tr>
-    <td>brightbox::ruby</td>
+    <td><code>brightbox::ruby</code></td>
     <td>Adds the repository, Installs The full Ruby 1.9 package from brightbox, sets it as the default then installs a sane server gemrc and adds bundler, rake and rubygems-bundler gems to bootstrap your environment.</td>
   </tr>
   <tr>
-    <td>brightbox::nginx_passenger</td>
+    <td><code>brightbox::nginx_passenger</code></td>
     <td>Requires the ruby recipe, will install passenger with 1.9.1 and nginx, setting up nginx to use passenger.</td>
   </tr>
 </table>
