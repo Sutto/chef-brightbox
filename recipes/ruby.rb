@@ -35,5 +35,6 @@ end
 
 # Regenerate the binstups for rubygems-bundler.
 execute "gem regenerate_binstubs" do
-  action :run
+  action :nothing
+  subscribes :run, resources('gem_package[rubygems-bundler]')
 end
