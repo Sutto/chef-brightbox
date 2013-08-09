@@ -12,7 +12,7 @@ end
 
 ["build-essential", "ruby1.9.1-full", "ruby-switch"].each do |name|
   apt_package name do
-    action :install
+    action :upgrade
   end
 end
 
@@ -29,7 +29,7 @@ end
 
 ["bundler", "rake", "rubygems-bundler"].each do |gem|
   gem_package gem do
-    action :install
+    action :upgrade
   end
 end
 
