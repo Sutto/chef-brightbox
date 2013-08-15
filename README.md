@@ -5,6 +5,9 @@ of Ruby 1.9.3, Nginx and Passenger.
 
 For more documentation on these builds, please see [the official brightbox documentation](http://blog.brightbox.co.uk/posts/next-generation-ruby-packages-for-ubuntu).
 
+**Please Note:** If you're upgrading from an older version, the default action is to upgrade packages. To change this, you need
+to override `node['brightbox']['ruby']['default_action']`.
+
 ## Usage
 
 Simple add `chef-brightbox` to your recipe, and then include one of the following
@@ -59,7 +62,7 @@ Other than that, our guidelines very closely match the GemCutter guidelines [her
 
 ## Copyright
 
-Copyright 2012 Filter Squad.
+Copyright 2012-2013 Filter Squad.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

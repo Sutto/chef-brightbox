@@ -1,0 +1,1 @@
+default['brightbox']['ruby']['default_action'] = :upgrade
