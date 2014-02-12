@@ -10,15 +10,15 @@ apt_repository "brightbox-ruby-ng-#{node['lsb']['codename']}" do
   notifies     :run, "execute[apt-get update]", :immediately
 end
 
-["build-essential", "ruby1.9.1-full", "ruby-switch"].each do |name|
+["build-essential", "ruby#{node['brightbox']['ruby']['version']}", "ruby-switch"].each do |name|
   apt_package name do
     action node['brightbox']['ruby']['default_action']
   end
 end
 
-execute "ruby-switch --set ruby1.9.1" do
+execute "ruby-switch --set ruby#{node['brightbox']['ruby']['version']}" do
   action :run
-  not_if "ruby-switch --check | grep -q 'ruby1.9.1'"
+  not_if "ruby-switch --check | grep -q 'ruby#{node['brightbox']['ruby']['version']}'"
 end
 
 cookbook_file "/etc/gemrc" do
