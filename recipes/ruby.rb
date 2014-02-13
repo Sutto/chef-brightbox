@@ -10,7 +10,9 @@ apt_repository "brightbox-ruby-ng-#{node['lsb']['codename']}" do
   notifies     :run, "execute[apt-get update]", :immediately
 end
 
-["build-essential", "ruby#{node['brightbox']['ruby']['version']}", "ruby-switch"].each do |name|
+packages = ["build-essential", "ruby#{node['brightbox']['ruby']['version']}", "ruby-switch"]
+packages << "ruby#{node['brightbox']['ruby']['version']}-dev" if node['brightbox']['ruby']['install_dev_package']
+packages.each do |name|
   apt_package name do
     action node['brightbox']['ruby']['default_action']
   end
