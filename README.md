@@ -1,7 +1,6 @@
 # chef-brightbox
 
-This recipe provides support for installing the BrightBox builds
-of Ruby 1.9.3, Nginx and Passenger.
+This recipe provides support for installing the BrightBox builds of Ruby 2.1, Nginx and Passenger.
 
 For more documentation on these builds, please see [the official brightbox documentation](http://blog.brightbox.co.uk/posts/next-generation-ruby-packages-for-ubuntu).
 
@@ -24,11 +23,11 @@ recipes:
   </tr>
   <tr>
     <td><code>brightbox::ruby</code></td>
-    <td>Adds the repository, Installs The full Ruby 1.9 package from brightbox, sets it as the default then installs a sane server gemrc and adds bundler, rake and rubygems-bundler gems to bootstrap your environment.</td>
+    <td>Adds the repository, installs the Ruby 2.1 package from brightbox, sets it as the default then installs a sane server gemrc and adds bundler, rake and rubygems-bundler gems to bootstrap your environment.</td>
   </tr>
   <tr>
     <td><code>brightbox::nginx_passenger</code></td>
-    <td>Requires the ruby recipe, will install passenger with 1.9.1 and nginx, setting up nginx to use passenger.</td>
+    <td>Requires the ruby recipe, will install passenger with 2.1 and nginx, setting up nginx to use passenger.</td>
   </tr>
 </table>
 

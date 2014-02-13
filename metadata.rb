@@ -9,7 +9,7 @@ license          "Apache 2.0"
 
 supports 'ubuntu'
 
-recipe "brightbox::ruby",            "Installs and sets Ruby 1.9.3 as the default Ruby."
+recipe "brightbox::ruby",            "Installs and sets Ruby 2.1 as the default Ruby."
 recipe "brightbox::nginx_passenger", "Installs and configures nginx using passenger."
 
 depends "apt"
