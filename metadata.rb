@@ -1,11 +1,10 @@
-name             "brightbox-ruby"
-description      "Handles managing Rubies from brightbox"
-long_description "Handles managing Rubies from brightbox"
-version          "0.0.2"
-
-maintainer       "Filter Squad"
-maintainer_email "darcy@filtersquad.com"
-license          "Apache 2.0"
+name              'brightbox-ruby'
+maintainer        'Filter Squad'
+maintainer_email  'darcy@filtersquad.com'
+license           'Apache 2.0'
+description       'Handles managing Rubies from brightbox'
+long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version           '0.0.2'
 
 recipe "brightbox-ruby::default", "Adds the brightbox repository, installs the Ruby package, sets it as the default then installs a sane server gemrc and adds bundler, rake and rubygems-bundler gems to bootstrap your environment."
 
@@ -48,4 +47,4 @@ attribute 'brightbox-ruby/gems',
 
 supports 'ubuntu'
 
-depends "apt"
+depends 'apt'
