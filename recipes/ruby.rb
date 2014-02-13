@@ -19,7 +19,6 @@ packages.each do |name|
 end
 
 execute "ruby-switch --set ruby#{node['brightbox']['ruby']['version']}" do
-  action :run
   not_if "ruby-switch --check | grep -q 'ruby#{node['brightbox']['ruby']['version']}'"
 end
 
