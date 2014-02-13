@@ -9,7 +9,7 @@ platforms:
   - name: ubuntu-12.04
 
 suites:
-  - name: ruby
+  - name: default
     run_list:
-      - recipe[brightbox::ruby]
+      - recipe[brightbox-ruby]
     attributes:
