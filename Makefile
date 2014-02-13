@@ -12,3 +12,6 @@ foodcritic:
 
 integration:
 	kitchen test -p --destroy=always
+
+docs:
+	bundle exec knife cookbook doc .
