@@ -27,7 +27,7 @@ cookbook_file "/etc/gemrc" do
   mode   "0644"
 end
 
-["bundler", "rake", "rubygems-bundler"].each do |gem|
+node['brightbox']['ruby']['gems'].each do |gem|
   gem_package gem do
     action node['brightbox']['ruby']['default_action']
   end
