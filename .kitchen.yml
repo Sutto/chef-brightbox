@@ -11,5 +11,5 @@ platforms:
 suites:
   - name: ruby
     run_list:
-      - recipe[brightbox::default]
+      - recipe[brightbox::ruby]
     attributes:
