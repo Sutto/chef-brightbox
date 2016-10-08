@@ -1,50 +1,31 @@
-# chef-brightbox
+# Description
 
-This recipe provides support for installing the BrightBox builds
-of Ruby 1.9.3, Nginx and Passenger.
+This cookbook provides support for installing the BrightBox builds of Ruby.
 
 For more documentation on these builds, please see [the official brightbox documentation](http://blog.brightbox.co.uk/posts/next-generation-ruby-packages-for-ubuntu).
 
-**Please Note:** If you're upgrading from an older version, the default action is to upgrade packages. To change this, you need
-to override `node['brightbox']['ruby']['default_action']`.
+**Please Note:** If you're upgrading from an older version, the default action is to upgrade packages. To change this, you need to override `node['brightbox-ruby']['default_action']`.
 
-## Usage
+# Requirements
 
-Simple add `chef-brightbox` to your recipe, and then include one of the following
-recipes:
+## Platform:
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>brightbox::default</code></td>
-    <td>Installs the ruby and nginx passenger recipes.</td>
-  </tr>
-  <tr>
-    <td><code>brightbox::ruby</code></td>
-    <td>Adds the repository, Installs The full Ruby 1.9 package from brightbox, sets it as the default then installs a sane server gemrc and adds bundler, rake and rubygems-bundler gems to bootstrap your environment.</td>
-  </tr>
-  <tr>
-    <td><code>brightbox::nginx_passenger</code></td>
-    <td>Requires the ruby recipe, will install passenger with 1.9.1 and nginx, setting up nginx to use passenger.</td>
-  </tr>
-</table>
+* Ubuntu
 
-## Definitions
+## Cookbooks:
 
-We provide a `nginx_site` recipe that will enable / disable an nginx vhost.
+* apt
 
-Usage is similar to:
+# Attributes
 
-```ruby
-# Use the configuration at /etc/nginx/sites-available/your-application.com
-# Note we don't generate that configuration
-nginx_site "your-application.com" do
-  enable true # Or false, true is default.
-end
-```
+* `node['brightbox-ruby']['default_action']` - Default action for Ruby install. Available options: `:upgrade`, `:install`. Defaults to `:upgrade`.
+* `node['brightbox-ruby']['version']` - The version of Ruby to install. Defaults to `2.1`.
+* `node['brightbox-ruby']['install_dev_package']` - Install the dev package, which provides headers for gem native extensions. Available options: `true`, `false`. Defaults to `true`.
+* `node['brightbox-ruby']['gems']` - Gems to be installed by default. Defaults to `["bundler", "rake", "rubygems-bundler"]`.
+
+# Recipes
+
+* brightbox-ruby::default - Adds the brightbox repository, installs the Ruby package, sets it as the default then installs a sane server gemrc and adds bundler, rake and rubygems-bundler gems to bootstrap your environment.
 
 ## Contributing
 
@@ -60,18 +41,9 @@ Other than that, our guidelines very closely match the GemCutter guidelines [her
 
 (Thanks to [GemCutter](http://wiki.github.com/qrush/gemcutter/) for the contribution guide)
 
-## Copyright
 
-Copyright 2012-2013 Filter Squad.
+# License and Maintainer
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+Maintainer:: Filter Squad (<darcy@filtersquad.com>)
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+License:: Apache 2.0
